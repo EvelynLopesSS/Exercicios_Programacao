@@ -1,84 +1,110 @@
 {% extends 'base.html' %}
 
-{% block title %}Lista de Exercícios{% endblock %}
-
 {% block content %}
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-calculator"></i>
-                    <h5 class="exercise-title">Calculadora de Notas</h5>
-                    <a href="/calculadora_notas" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
+<style>
+  .card {
+    height: 100%;
+    margin-bottom: 20px;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .my-card-row {
+    margin-bottom: 20px; 
+  }
+  .icon {
+    font-size: 36px;
+  }
+</style>
+<div class="container">
+  <div class="row my-card-row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-calculator"></i>
+          <h5 class="exercise-title">Calculadora de Notas</h5>
+          <a href="{{ url_for('calculadora_notas') }}" class="btn btn-primary">Ir para o Exercício</a>
         </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-receipt"></i>
-                    <h5 class="exercise-title">Cupom Fiscal</h5>
-                    <a href="/cupom-fiscal" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-users"></i>
-                    <h5 class="exercise-title">Folha de Pagamento</h5>
-                    <a href="/folha-pagamento" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-user-secret"></i>
-                    <h5 class="exercise-title">Investigação Criminal</h5>
-                    <a href="/investigacao-criminal" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-sort-numeric-down"></i>
-                    <h5 class="exercise-title">Ordenador de Números</h5>
-                    <a href="/ordenador-numeros" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-list-ol"></i>
-                    <h5 class="exercise-title">Quantidade de Centenas, Dezenas e Unidades</h5>
-                    <a href="/quantidade-centenas-dezenas-unidades" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-calculator"></i>
-                    <h5 class="exercise-title">Raízes da Equação do Segundo Grau</h5>
-                    <a href="/raizes-equacao-segundo-grau" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card rounded">
-                <div class="card-body text-center">
-                    <i class="icon fas fa-coins"></i>
-                    <h5 class="exercise-title">Reajuste de Salário</h5>
-                    <a href="/caminho/para/reajuste_salario.py" class="btn btn-primary">Ir para o exercício</a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-file-invoice-dollar"></i>
+          <h5 class="exercise-title">Cupom Fiscal</h5>
+          <a href="{{ url_for('cupom_fiscal') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-money-check-alt"></i>
+          <h5 class="exercise-title">Folha de Pagamento</h5>
+          <a href="{{ url_for('folha_pagamento') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row my-card-row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-user-secret"></i>
+          <h5 class="exercise-title">Investigação Criminal</h5>
+          <a href="{{ url_for('investigacao_criminal') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-sort-numeric-down"></i>
+          <h5 class="exercise-title">Ordenador de Números</h5>
+          <a href="{{ url_for('ordenador_numeros') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-calculator"></i>
+          <h5 class="exercise-title">Quantidade Centenas Dezenas Unidades</h5>
+          <a href="{{ url_for('quantidade_centenas_dezenas_unidades') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row my-card-row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-square-root-alt"></i>
+          <h5 class="exercise-title">Raízes da Equação de Segundo Grau</h5>
+          <a href="{{ url_for('raizes_equacao_segundo_grau') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <i class="icon fas fa-money-bill-wave"></i>
+          <h5 class="exercise-title">Reajuste Salarial</h5>
+          <a href="{{ url_for('reajuste_salarial') }}" class="btn btn-primary">Ir para o Exercício</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 {% endblock %}

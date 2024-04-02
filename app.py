@@ -6,9 +6,7 @@ from exercicios.investigacao_criminosa import fazer_perguntas, classificar_parti
 from exercicios.ordenador_numeros import OrdenadorNumeros
 from exercicios.quantidade_centenas_dezenas_unidades import calcular_centenas_dezenas_unidades
 from exercicios.raizes_equacao_segundo_grau import calcular_raizes
-
-
-import exercicios.reajuste_salario as reajuste_salario
+from exercicios.reajuste_salario import formatar_salario, ReajusteSalario
 
 app = Flask(__name__)
 
@@ -120,14 +118,31 @@ def raizes_equacao_segundo_grau():
 
             resultado = calcular_raizes(a, b, c)
             return render_template('raizes_equacao_segundo_grau.html', resultado=resultado)
-        
+
         except ValueError:
-            return render_template('raizes_equacao_segundo_grau.html', resultado="Por favor, insira valores numéricos.")
+            return render_template('raizes_equacao_segundo_grau.html', resultado="Por favor, insira valores numéricos válidos.")
 
     return render_template('raizes_equacao_segundo_grau.html')
-@app.route('/executar_reajuste_salario', methods=['POST'])
-def executar_reajuste_salario():
-    return render_template('reajuste_salario.html')
+
+@app.route('/reajuste-salarial', methods=['GET', 'POST'])
+def reajuste_salarial():
+    detalhes_reajuste = None
+    if request.method == 'POST':
+        salario_str = request.form['salario_atual']
+        salario_str = salario_str.replace(',', '.') 
+        salario = formatar_salario(salario_str)
+        
+        reajuste = ReajusteSalario(salario)
+        percentual, aumento, novo_salario = reajuste.calcular_reajuste()
+
+        detalhes_reajuste = [
+            ["Salário antes do reajuste", f"R$ {salario:.2f}"],
+            ["Percentual de aumento aplicado", f"{percentual}%"],
+            ["Valor do aumento", f"R$ {aumento:.2f}"],
+            ["Novo salário após o aumento", f"R$ {novo_salario:.2f}"]
+        ]
+
+    return render_template('reajuste_salario.html', detalhes_reajuste=detalhes_reajuste)
 
 if __name__ == '__main__':
     app.run(debug=True)
