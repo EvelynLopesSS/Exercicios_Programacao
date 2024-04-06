@@ -4,7 +4,7 @@ Este repositório contém uma coleção de exercícios de programação resolvid
 
 ## Lista de Exercícios
 
-### 01 - 📊 Média de Notas [![calculadora_notas.py](https://img.shields.io/badge/calculadora__notas.py-View-green)](calculadora_notas.py)
+### 01 - 📊 Média de Notas [![calculadora_notas.py](https://img.shields.io/badge/calculadora__notas.py-View-green)](exercicios/calculadora_notas.py)
 
 Faça um programa para a leitura de duas notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e apresentar a mensagem:
 
